@@ -1,12 +1,15 @@
 import { LayoutProps } from '@/models/index'
-import * as React from 'react'
-import { Auth } from '../common'
+import { Stack } from '@mui/material'
+import { Box } from '@mui/system'
+import React from 'react'
+import { Footer, Header } from '../common'
 
-export function MailLayout({ children }: LayoutProps) {
+export function MainLayout({ children }: LayoutProps) {
   return (
-    <Auth>
-      <h1>Main Layout</h1>
-      <div>{children}</div>
-    </Auth>
+    <Stack minHeight="100vh">
+      <Header />
+      <Box component="main" flexGrow={1}>{children}</Box>
+      <Footer />
+    </Stack>
   )
 }
