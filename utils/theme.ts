@@ -1,8 +1,8 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 import { red } from '@mui/material/colors'
 
 // Create a theme instance.
-export const theme = createTheme({
+export let theme = createTheme({
   typography: {
     fontFamily: 'Heebo, sans-serif',
   },
@@ -11,10 +11,14 @@ export const theme = createTheme({
       main: '#556cd6',
     },
     secondary: {
+      light: '#EDF7FA',
       main: '#19857b',
     },
     error: {
       main: red.A400,
+    },
+    text: {
+      primary: '#21243D',
     },
   },
   components: {
@@ -50,5 +54,21 @@ export const theme = createTheme({
         underline: 'none',
       },
     },
+    MuiButton: {
+      variants: [
+        {
+          props: { variant: 'contained', color: 'primary' },
+          style: { color: 'white' },
+        },
+      ],
+    },
   },
 })
+
+theme = responsiveFontSizes(theme)
+// theme.typography.h3 = {
+//   fontSize: '2rem',
+//   [theme.breakpoints.up('md')]: {
+//     fontSize: '3rem',
+//   },
+// }
